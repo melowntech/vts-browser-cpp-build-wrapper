@@ -1,0 +1,36 @@
+[submodule "browser"]
+	path = browser
+	url = https://github.com/Melown/vts-browser-cpp.git
+[submodule "externals/gdal/gdal"]
+	path = externals/gdal/gdal
+	url = https://github.com/Melown/gdal.git
+[submodule "externals/geographiclib/geographiclib"]
+	path = externals/geographiclib/geographiclib
+	url = https://github.com/znly/geographiclib.git
+[submodule "externals/boost/boost"]
+	path = externals/boost/boost
+	url = https://github.com/Orphis/boost-cmake.git
+[submodule "externals/jsoncpp/jsoncpp"]
+	path = externals/jsoncpp/jsoncpp
+	url = https://github.com/Melown/jsoncpp.git
+[submodule "externals/eigen/eigen"]
+	path = externals/eigen/eigen
+	url = https://github.com/eigenteam/eigen-git-mirror
+[submodule "externals/jpeg/jpeg"]
+	path = externals/jpeg/jpeg
+	url = https://github.com/libjpeg-turbo/libjpeg-turbo
+[submodule "externals/zlib/zlib"]
+	path = externals/zlib/zlib
+	url = https://github.com/Melown/zlib.git
+[submodule "externals/png/png"]
+	path = externals/png/png
+	url = https://github.com/glennrp/libpng
+[submodule "externals/sdl/sdl"]
+	path = externals/sdl/sdl
+	url = https://github.com/spurious/SDL-mirror
+[submodule "externals/proj/proj"]
+	path = externals/proj/proj
+	url = https://github.com/Melown/proj.4.git
+[submodule "externals/curl/curl"]
+	path = externals/curl/curl
+	url = https://github.com/curl/curl
