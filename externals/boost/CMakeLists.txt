@@ -1,7 +1,8 @@
 
 message(STATUS "@@@ boost")
 
-set(BOOST_LIBS_OPTIONAL
+set(BOOST_LIBS_REQUIRED
+    header,
     THREAD,
     ATOMIC,
     CHRONO,
@@ -16,3 +17,4 @@ set(BOOST_LIBS_OPTIONAL
 )
 
 add_subdirectory(boost)
+
