@@ -48,16 +48,11 @@ message(STATUS "@@@ including browser")
 add_subdirectory(browser/browser)
 
 #ide groups for 3rd party libraries
-buildsys_ide_groups(genfiles deps)
-buildsys_ide_groups(jpeg-static deps)
-buildsys_ide_groups(GeographicLib_STATIC deps)
-buildsys_ide_groups(jsoncpp_lib_static deps)
-buildsys_ide_groups(libcurl deps)
-buildsys_ide_groups(png_static deps)
-buildsys_ide_groups(proj deps)
-buildsys_ide_groups(SDL2 deps)
-buildsys_ide_groups(simd deps)
-buildsys_ide_groups(simd-objs deps)
-buildsys_ide_groups(zlibstatic deps)
+foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2 simd simd-objs zlibstatic)
+    if(TARGET ${name})
+        buildsys_ide_groups(${name} deps)
+    endif()
+endforeach()
+
 
 
