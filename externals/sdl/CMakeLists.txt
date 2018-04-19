@@ -13,11 +13,12 @@ function(directory_link target name)
             file(TO_NATIVE_PATH ${name} name)
             execute_process(COMMAND cmd /C mklink /D "${name}" "${target}")
         else()
-            execute_process(COMMAND sh -c ln -s "${target}" "${name}")
+            execute_process(COMMAND ln -s "${target}" "${name}")
         endif()
     endif()
 endfunction(directory_link)
 directory_link("${CMAKE_CURRENT_SOURCE_DIR}/sdl/include" "${CMAKE_CURRENT_BINARY_DIR}/SDL2")
 
 target_include_directories(SDL2 INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+
 
