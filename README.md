@@ -62,7 +62,7 @@ If you are using different IDE, choose the exact name by running help.
 cmake --help
 ```
 
-# Notes
+## Notes
 
 This repository is intended to be used on Windows.
 However, if you prefer to have all the libraries

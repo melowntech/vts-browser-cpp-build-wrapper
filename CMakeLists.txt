@@ -14,23 +14,26 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR}/modules)
 
 # boost
 add_definitions(
-  -DBOOST_THREAD_PROVIDES_NESTED_LOCKS # make boost scoped_lock available as a nested class of mutex
-  -DBOOST_ALL_NO_LIB # make boost link statically
-  -DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE # suppress boost compiler version check warnings
+    -DBOOST_THREAD_PROVIDES_NESTED_LOCKS # make boost scoped_lock available as a nested class of mutex
+    -DBOOST_ALL_NO_LIB # configure boost for manual linking libraries
+    -DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE # suppress boost compiler version check warnings
 )
 
-# disable warning: class 'type' needs to have dll-interface to be used by clients of class 'type2'
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /wd4251 /wd4275")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 /wd4275")
+# MS Visual Studio
+if(MSVC)
+    # disable warning: class 'type' needs to have dll-interface to be used by clients of class 'type2'
+    add_definitions(/wd4251 /wd4275)
 
-# enable multi process compilation
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+    # disable warning: conversion from 'type' to 'type2', possible loss of data
+    add_definitions(/wd4267 /wd4244 /wd4305)
+
+    # enable multi process compilation
+    add_definitions(/MP)
+endif()
 
 # all final product files should be placed in a sane locations
 foreach(conf IN ITEMS ${CMAKE_CONFIGURATION_TYPES} ${CMAKE_BUILD_TYPE})
     string(TOUPPER ${conf} conf_upper)
-    string(TOLOWER ${conf} conf_lower)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib")
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/bin")

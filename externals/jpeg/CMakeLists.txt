@@ -10,6 +10,6 @@ endif()
 
 add_subdirectory(jpeg)
 
-target_include_directories(jpeg-static INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/jpeg)
-target_include_directories(jpeg-static INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/jpeg)
+target_include_directories(jpeg-static INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/jpeg")
+target_include_directories(jpeg-static INTERFACE "${CMAKE_CURRENT_BINARY_DIR}/jpeg")
 

@@ -1,5 +1,5 @@
 
-set(Zlib_LIBRARIES zlibstatic)
+set(Zlib_LIBRARIES $<TARGET_LINKER_FILE:zlibstatic>)
 get_target_property(Zlib_INCLUDE_DIRS zlibstatic INTERFACE_INCLUDE_DIRECTORIES)
 set(Zlib_LIBRARY ${Zlib_LIBRARIES})
 set(Zlib_INCLUDE_DIR ${Zlib_INCLUDE_DIRS})
@@ -11,4 +11,6 @@ set(ZLIB_LIBRARY ${Zlib_LIBRARIES})
 set(ZLIB_INCLUDE_DIR ${Zlib_INCLUDE_DIRS})
 set(ZLIB_FOUND TRUE)
 
+
 add_library(ZLIB::ZLIB ALIAS zlibstatic)
+

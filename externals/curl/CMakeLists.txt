@@ -8,4 +8,4 @@ option(CMAKE_USE_WINSSL "enable Windows native SSL/TLS" ON)
 
 add_subdirectory(curl)
 
-target_include_directories(libcurl INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/curl/include)
+target_include_directories(libcurl INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/curl/include>)
