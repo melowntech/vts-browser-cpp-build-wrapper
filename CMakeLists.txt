@@ -10,7 +10,11 @@ ENDIF()
 
 # make the project find our own provided libraries
 # the libraries provided here should have higher priority than system libraries
-list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR}/modules)
+list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/modules")
+
+# make cmake search for additional programs etc. in the extra folder
+# the programs provided here should have higher priority than system programs
+list(INSERT CMAKE_PREFIX_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/extra")
 
 # boost
 add_definitions(
