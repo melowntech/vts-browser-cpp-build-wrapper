@@ -3,6 +3,14 @@ message(STATUS "@@@ gdal")
 
 if (MSVC)
 
+    # cmake does not provide an easy way to evaluate generator-expressions during configure phase
+    # therefore, we have to make some assumptions about version numbers, proj library and output directory paths
+    # some of these things could be improved, but who has the <strike>dragons</strike> time?
+
+    # please note, that some of the paths and versions here needs to be kept in sync with other files, namely:
+    # nmake.opt.in.cmake and nmake.run.bat.in.cmake in this directory
+    # and the FindGDAL module
+
     get_filename_component(MY_COMPILER_DIR ${CMAKE_CXX_COMPILER} DIRECTORY)
     find_file(VCVARSALL_BAT vcvarsall.bat "${MY_COMPILER_DIR}/../../../../../../Auxiliary/Build/" NO_DEFAULT_PATH)
     if (NOT VCVARSALL_BAT)

@@ -67,6 +67,6 @@ cmake --help
 This repository is intended to be used on Windows.
 However, if you prefer to have all the libraries
 packed in, rather than using the system provided libraries,
-you may use this repository too.
+you may use this repository on other systems too.
 
 
