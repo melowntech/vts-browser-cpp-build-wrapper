@@ -33,10 +33,10 @@ if (MSVC)
 
         if (${conf_upper} STREQUAL "DEBUG")
             set(GDAL_DEBUG 1)
-            set(GDAL_PROJ_LIB "${CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper}}/proj_5_0_d.lib") # no ducks here either
+            set(GDAL_PROJ_LIB "${CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper}}/proj_4_9_d.lib") # no ducks here either
         else()
             set(GDAL_DEBUG 0)
-            set(GDAL_PROJ_LIB "${CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper}}/proj_5_0.lib") # some ducks here maybe?
+            set(GDAL_PROJ_LIB "${CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper}}/proj_4_9.lib") # some ducks here maybe?
         endif()
 
         set(COPY_LIB_SOURCE "${BINARY_DIR}/lib/gdal_i.lib")
@@ -57,8 +57,9 @@ if (MSVC)
 
     add_custom_command(OUTPUT ${GDAL_PRODUCT} COMMAND ${NMAKE_RUN} COMMENT "custom cmake command for gdal" VERBATIM)
     add_library(gdal INTERFACE)
-    add_custom_target(gdalTarget DEPENDS ${GDAL_PRODUCT})
-    add_dependencies(gdal gdalTarget proj)
+    add_custom_target(gdalBuild DEPENDS ${GDAL_PRODUCT})
+    add_dependencies(gdalBuild proj)
+    add_dependencies(gdal gdalBuild)
     target_link_libraries(gdal INTERFACE ${GDAL_PRODUCT})
     target_include_directories(gdal INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/gdal/gdal/ogr;${CMAKE_CURRENT_SOURCE_DIR}/gdal/gdal/port;${CMAKE_CURRENT_SOURCE_DIR}/gdal/gdal/alg;${CMAKE_CURRENT_SOURCE_DIR}/gdal/gdal/gcore")
 
