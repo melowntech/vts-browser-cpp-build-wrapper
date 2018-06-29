@@ -50,7 +50,7 @@ add_subdirectory(externals EXCLUDE_FROM_ALL)
 
 # vts browser
 message(STATUS "@@@ including browser")
-add_subdirectory(browser/browser)
+add_subdirectory(externals/browser/browser)
 
 #ide groups for 3rd party libraries
 foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2 simd simd-objs zlibstatic gdalBuild)
