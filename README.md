@@ -1,17 +1,17 @@
-# VTS Browser CPP - Windows Build Wrapper
+# VTS Browser CPP - Build Wrapper
 
-[VTS Browser CPP](https://github.com/melown/vts-browser-cpp) is a library
-that brings VTS capabilities to your native C++ applications.
+[VTS Browser CPP](https://github.com/melown/vts-browser-cpp) is a collection of libraries that bring VTS client capabilities to your native applications.
 
-[This wrapper](https://github.com/melown/vts-browser-cpp-win)
-allows easy building of the VTS Browser on windows.
+[This build wrapper](https://github.com/melown/vts-browser-cpp-build-wrapper) allows easy building of 3rd-party dependencies required for the browser.
 
-It provides configured git submodules for all dependent libraries
-and integrated build scripts in cmake.
+It provides configured git submodules and cmake build scripts for all 3rd-party libraries and for the browser.
 
-## Prerequisites
+The primary intention of this repository is to allow building of the browser on Microsoft Windows.
+However, the goal is to make it possible to build and embed all the libraries on all platforms supported by the browser.
 
-### Permission for Symlinks
+## Building On Windows
+
+### Permission For Symlinks
 
 On Windows, a specific permissions are required to allow creating symbolic file links.
 There are two ways to acquire the permission.
@@ -35,11 +35,11 @@ https://gitforwindows.org/ and https://cmake.org/download/
 ### Python
 
 Python is available at: https://www.python.org/downloads/windows/
-Make sure to choose Python 2.
+Make sure to choose Python *2*.
 
 Also, during the installation, select to add the Python to environment variable PATH.
 
-## Building
+### Build
 
 Go to the directory where you have cloned the repository.
 
@@ -61,12 +61,5 @@ If you are using different IDE, choose the exact name by running help.
 ```bash
 cmake --help
 ```
-
-## Notes
-
-This repository is intended to be used on Windows.
-However, if you prefer to have all the libraries
-packed in, rather than using the system provided libraries,
-you may use this repository on other systems too.
 
 
