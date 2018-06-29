@@ -1,5 +1,5 @@
-[submodule "browser"]
-	path = browser
+[submodule "externals/browser"]
+	path = externals/browser
 	url = https://github.com/Melown/vts-browser-cpp.git
 [submodule "externals/gdal/gdal"]
 	path = externals/gdal/gdal
