@@ -62,4 +62,19 @@ If you are using different IDE, choose the exact name by running help.
 cmake --help
 ```
 
+## Bug Reports
+
+For bug reports or enhancement suggestions use the
+[Issue tracker](https://github.com/melown/vts-browser-cpp-build-wrapper/issues).
+
+## How to Contribute
+
+Check the [CONTRIBUTING.md](https://github.com/Melown/vts-browser-cpp/blob/master/CONTRIBUTING.md) on the VTS Browser CPP repository.
+It applies equally here.
+
+## License
+
+See the [LICENSE](LICENSE) file.
+
+
 
