@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1 FATAL_ERROR)
-project(vts-browser-win)
+project(vts-browser-build-wrapper)
 
 # disable in-source builds
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
