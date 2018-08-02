@@ -16,3 +16,4 @@ set(CURL_CA_PATH "none" CACHE STRING "ca path")
 add_subdirectory(curl)
 
 target_include_directories(libcurl INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/curl/include>)
+target_compile_definitions(libcurl INTERFACE CURL_STATICLIB)
