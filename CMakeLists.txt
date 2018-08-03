@@ -28,6 +28,12 @@ if(MSVC)
     add_definitions(/MP)
 endif()
 
+# default to release build
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    set(CMAKE_BUILD_TYPE RELEASE CACHE STRING "CMAKE_BUILD_TYPE")
+    message(STATUS "Building RELEASE build by default. Set CMAKE_BUILD_TYPE to override it.")
+endif()
+
 # all final product files should be placed in a sane locations
 foreach(conf IN ITEMS ${CMAKE_CONFIGURATION_TYPES} ${CMAKE_BUILD_TYPE})
     string(TOUPPER ${conf} conf_upper)
