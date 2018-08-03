@@ -13,6 +13,10 @@ else()
 endif()
 set(CURL_CA_PATH "none" CACHE STRING "ca path")
 
+set(BUILD_TESTING OFF CACHE BOOL "BUILD_TESTING")
+set(ENABLE_MANUAL OFF CACHE BOOL "ENABLE_MANUAL")
+set(USE_MANUAL OFF CACHE BOOL "USE_MANUAL")
+
 add_subdirectory(curl)
 
 target_include_directories(libcurl INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/curl/include>)

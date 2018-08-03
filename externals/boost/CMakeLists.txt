@@ -13,3 +13,15 @@ set_target_properties(Boost::boost PROPERTIES INTERFACE_COMPILE_DEFINITIONS "BOO
 if (UNIX)
   set_target_properties(Boost::boost PROPERTIES INTERFACE_COMPILE_OPTIONS "-Wno-unused-local-typedefs")
 endif()
+
+get_target_property(boost_path Boost::boost INTERFACE_INCLUDE_DIRECTORIES)
+if (NOT boost_path)
+  message(STATUS "fixing include path for boost")
+  file(GLOB_RECURSE boost_path "${CMAKE_CURRENT_BINARY_DIR}/boost/*/asio.hpp")
+  get_filename_component(boost_path "${boost_path}" DIRECTORY) # remove asio.hpp
+  get_filename_component(boost_path "${boost_path}" DIRECTORY) # parent directory
+  set_target_properties(Boost::boost PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${boost_path}")
+endif()
+
+
+

@@ -54,6 +54,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 if(MSVC)
   configure_file("gdal/gdal/port/cpl_config.h.vc" "cpl_config.h" COPYONLY)
+elseif(APPLE)
+  configure_file("cpl_config.h.apple" "cpl_config.h" COPYONLY)
 else()
   configure_file("cpl_config.h.linux" "cpl_config.h" COPYONLY)
 endif()

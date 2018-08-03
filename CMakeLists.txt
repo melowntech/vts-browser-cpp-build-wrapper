@@ -46,7 +46,8 @@ message(STATUS "@@@ including browser")
 add_subdirectory(externals/browser/browser)
 
 #ide groups for 3rd party libraries
-foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2 simd simd-objs zlibstatic gdal)
+foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2 simd simd-objs zlibstatic gdal
+    example minigzip zlib genprebuilt gensym genvers symbol-check uninstall dmg wrjpgcom testclean dist rdjpgcom udmg jpegtran-static tjtest tarball turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main )
     if(TARGET ${name})
         buildsys_ide_groups(${name} deps)
     endif()
