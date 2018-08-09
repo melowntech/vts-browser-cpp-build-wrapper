@@ -1,6 +1,10 @@
 
 message(STATUS "@@@ png")
 
+if(BUILDSYS_IOS)
+    set(PNG_HARDWARE_OPTIMIZATIONS "on" CACHE STRING "Enable Hardware Optimizations" FORCE)
+    set(PNG_ARM_NEON "on" CACHE STRING "Enable ARM NEON optimizations" FORCE)
+endif()
 option(PNG_SHARED "Build shared lib" OFF)
 option(PNG_TESTS  "Build libpng tests" OFF)
 set(SKIP_INSTALL_ALL ON)
