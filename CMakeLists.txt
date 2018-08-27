@@ -8,6 +8,11 @@ if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
     message(FATAL_ERROR "In-source build is disabled. Remove the already generated files and start again from dedicated build directory.")
 endif()
 
+# disable 32 bit builds
+if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+    message(FATAL_ERROR "64 bit generator is required.")
+endif()
+
 # make the project find our own provided libraries
 # the libraries provided here should have higher priority than system libraries
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/modules")
