@@ -12,9 +12,9 @@ endif()
 # the libraries provided here should have higher priority than system libraries
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/modules")
 
-# make cmake search for additional programs etc. in the extra folder
+# make cmake search for additional programs
 # the programs provided here should have higher priority than system programs
-list(INSERT CMAKE_PREFIX_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/extra")
+list(INSERT CMAKE_PREFIX_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/programs")
 
 # MS Visual Studio
 if(MSVC)
@@ -34,25 +34,27 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     message(STATUS "Building RELEASE build by default. Set CMAKE_BUILD_TYPE to override it.")
 endif()
 
-# all final product files should be placed in a sane locations
+# all final product files should be placed in some sane locations
 foreach(conf IN ITEMS ${CMAKE_CONFIGURATION_TYPES} ${CMAKE_BUILD_TYPE})
     string(TOUPPER ${conf} conf_upper)
     string(TOLOWER ${conf} conf_lower)
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib/${conf_lower}")
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib/${conf_lower}")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/bin/${conf_lower}")
+    if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY_${conf_upper})
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib/${conf_lower}")
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/lib/${conf_lower}")
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${conf_upper} "${CMAKE_BINARY_DIR}/bin/${conf_lower}")
+    endif()
 endforeach(conf)
 
 # 3rd party libraries
-message(STATUS "@@@ including externals")
+message(STATUS "@@@ including 3rd party libraries")
 add_subdirectory(externals EXCLUDE_FROM_ALL)
 
 # vts browser
-message(STATUS "@@@ including browser")
+message(STATUS "@@@ including vts browser")
 add_subdirectory(externals/browser/browser)
 
-#ide groups for 3rd party libraries
-foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2 simd simd-objs zlibstatic gdal
+# ide groups for 3rd party targets
+foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib_static libcurl png_static proj SDL2-static simd simd-objs zlibstatic gdal
     example minigzip zlib genprebuilt gensym genvers symbol-check uninstall dmg wrjpgcom testclean dist rdjpgcom udmg jpegtran-static tjtest tarball turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main )
     if(TARGET ${name})
         buildsys_ide_groups(${name} deps)
