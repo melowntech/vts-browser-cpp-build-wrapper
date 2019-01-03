@@ -7,13 +7,12 @@ if(NOT TARGET ZLIB::ZLIB)
     set(lib $<TARGET_LINKER_FILE:zlibstatic>)
     get_target_property(inc zlibstatic INTERFACE_INCLUDE_DIRECTORIES)
 
-    add_library(ZLIB_ZLIB INTERFACE IMPORTED GLOBAL)
-    set_target_properties(ZLIB_ZLIB PROPERTIES
+    add_library(ZLIB::ZLIB INTERFACE IMPORTED GLOBAL)
+    set_target_properties(ZLIB::ZLIB PROPERTIES
         INTERFACE_LINK_LIBRARIES "${lib}"
         INTERFACE_INCLUDE_DIRECTORIES "${inc}"
     )
-    add_dependencies(ZLIB_ZLIB zlibstatic)
-    add_library(ZLIB::ZLIB ALIAS ZLIB_ZLIB)
+    add_dependencies(ZLIB::ZLIB zlibstatic)
 endif()
 
 get_target_property(Zlib_LIBRARIES ZLIB::ZLIB INTERFACE_LINK_LIBRARIES)
