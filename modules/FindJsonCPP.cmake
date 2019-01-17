@@ -1,6 +1,6 @@
 
-set(JsonCPP_LIBRARIES jsoncpp_lib_static)
-get_target_property(JsonCPP_INCLUDE_DIRS jsoncpp_lib_static INTERFACE_INCLUDE_DIRECTORIES)
+set(JsonCPP_LIBRARIES jsoncpp_lib)
+get_target_property(JsonCPP_INCLUDE_DIRS jsoncpp_lib INTERFACE_INCLUDE_DIRECTORIES)
 set(JsonCPP_LIBRARY ${JsonCPP_LIBRARIES})
 set(JsonCPP_INCLUDE_DIR ${JsonCPP_INCLUDE_DIRS})
 set(JsonCPP_FOUND TRUE)
