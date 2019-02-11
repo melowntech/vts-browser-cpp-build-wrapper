@@ -11,10 +11,26 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 
+#disable warnings that some files produced no symbols
 if(MSVC)
-    #disable warnings that some files produced no symbols
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ignore:4221")
     set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -ignore:4221")
+endif()
+
+# compile all 3rd party dependencies with optimizations even in debug build
+if(MSVC)
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /O2")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /O2")
+    # /RTC and /O2 are incompatible
+    foreach(flag_var
+        CMAKE_C_FLAGS CMAKE_C_FLAGS_DEBUG
+        CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG
+        )
+        string(REGEX REPLACE "/RTC[^ ]*" "" ${flag_var} "${${flag_var}}")
+    endforeach(flag_var)
+else()
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O3")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O3")
 endif()
 
 add_subdirectory(zlib)

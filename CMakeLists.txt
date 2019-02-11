@@ -29,6 +29,9 @@ if(MSVC)
     # disable warning: conversion from 'type' to 'type2', possible loss of data
     add_definitions(/wd4267 /wd4244 /wd4305)
 
+    # disable warning: deprecated declaration
+    add_definitions(/wd4996)
+
     # enable multi process compilation
     add_definitions(/MP)
 endif()
