@@ -42,6 +42,8 @@ add_subdirectory(boost)
 add_subdirectory(proj)
 add_subdirectory(gdal)
 add_subdirectory(geographiclib)
+add_subdirectory(freetype)
+add_subdirectory(harfbuzz)
 
 if(NOT BUILDSYS_EMBEDDED)
     add_subdirectory(sdl)

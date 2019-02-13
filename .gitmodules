@@ -34,3 +34,9 @@
 [submodule "externals/curl/curl"]
 	path = externals/curl/curl
 	url = https://github.com/curl/curl
+[submodule "externals/harfbuzz/harfbuzz"]
+	path = externals/harfbuzz/harfbuzz
+	url = https://github.com/harfbuzz/harfbuzz.git
+[submodule "externals/freetype/freetype2"]
+	path = externals/freetype/freetype2
+	url = https://git.savannah.nongnu.org/r/freetype/freetype2.git/
