@@ -16,6 +16,7 @@ add_subdirectory(png)
 if(BUILDSYS_IOS)
     target_sources(png_static PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/png/arm/arm_init.c")
     target_sources(png_static PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/png/arm/filter_neon_intrinsics.c")
+    target_sources(png_static PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/png/arm/palette_neon_intrinsics.c")
     target_compile_definitions(png_static PRIVATE -DPNG_ARM_NEON_OPT=2)
 endif()
 
