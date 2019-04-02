@@ -1,6 +1,6 @@
 [submodule "externals/browser"]
 	path = externals/browser
-	url = https://github.com/Melown/vts-browser-cpp.git
+	url = https://github.com/melowntech/vts-browser-cpp.git
 [submodule "externals/gdal/gdal"]
 	path = externals/gdal/gdal
 	url = https://github.com/OSGeo/gdal.git
@@ -21,7 +21,7 @@
 	url = https://github.com/libjpeg-turbo/libjpeg-turbo
 [submodule "externals/zlib/zlib"]
 	path = externals/zlib/zlib
-	url = https://github.com/Melown/zlib.git
+	url = https://github.com/melowntech/zlib.git
 [submodule "externals/png/png"]
 	path = externals/png/png
 	url = https://github.com/glennrp/libpng
