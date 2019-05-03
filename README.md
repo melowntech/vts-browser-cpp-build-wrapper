@@ -68,6 +68,7 @@ sudo apt update
 sudo apt install \
     cmake \
     nasm \
+    libssl-dev \
     python-minimal
 ```
 
