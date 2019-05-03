@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(vts-browser-build-wrapper)
 
 # disable in-source builds
@@ -62,8 +62,8 @@ message(STATUS "@@@ including vts browser")
 add_subdirectory(externals/browser/browser)
 
 # ide groups for 3rd party targets
-foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib jsoncpp_lib_static libcurl png_static proj SDL2-static simd simd-objs zlibstatic gdal freetype harfbuzz
-    example minigzip zlib genprebuilt gensym genvers symbol-check uninstall dmg wrjpgcom testclean dist rdjpgcom udmg jpegtran-static tjtest tarball turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main )
+foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib jsoncpp_lib_static libcurl png_static proj SDL2-static simd simd-objs zlibstatic gdal freetype harfbuzz hb-ft-interop
+    example minigzip zlib genprebuilt gensym genvers symbol-check uninstall dmg wrjpgcom testclean dist rdjpgcom udmg jpegtran-static tjtest tarball turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main)
     if(TARGET ${name})
         buildsys_ide_groups(${name} deps)
     endif()

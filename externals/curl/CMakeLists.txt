@@ -7,7 +7,7 @@ option(HTTP_ONLY "disables all protocols except HTTP (This overrides all CURL_DI
 if(WIN32)
     option(CMAKE_USE_WINSSL "enable Windows native SSL/TLS" ON)
 elseif(APPLE)
-    option(CMAKE_USE_DARWINSSL "enable Apple OS native SSL/TLS" ON)
+    option(CMAKE_USE_SECTRANSP "enable Apple OS native SSL/TLS" ON)
 else()
     option(CMAKE_USE_OPENSSL "use OpenSSL code" ON)
 endif()

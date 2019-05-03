@@ -1,7 +1,7 @@
 
 message(STATUS "@@@ freetype")
 
-set(FT_WITH_ZLIB ON)
+option(FT_WITH_ZLIB "Use system zlib instead of internal library." ON)
 set(BUILD_SHARED_LIBS OFF)
 set(SKIP_INSTALL_ALL ON)
 
