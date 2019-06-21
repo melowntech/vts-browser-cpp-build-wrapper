@@ -48,7 +48,7 @@ set(GDAL_SOURCES
   gdal/gdal/port/cpl_vsisimple.cpp
 )
 
-set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD 11)
 
 #configure_file("gdal/gdal/gcore/gdal_version.h.in" "gdal_version.h" COPYONLY)
 

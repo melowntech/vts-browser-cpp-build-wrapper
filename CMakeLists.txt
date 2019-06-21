@@ -68,6 +68,3 @@ foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_lib json
         buildsys_ide_groups(${name} deps)
     endif()
 endforeach()
-
-
-

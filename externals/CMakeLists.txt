@@ -2,6 +2,7 @@
 cmake_policy(SET CMP0042 NEW) # use rpath
 set(CMAKE_MACOSX_BUNDLE FALSE)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_CXX_STANDARD 14)
 
 # disable warnings
 if(MSVC)
