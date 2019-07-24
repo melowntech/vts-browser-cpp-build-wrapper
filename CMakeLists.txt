@@ -37,6 +37,9 @@ if(MSVC)
 
     # enable multi process compilation
     add_definitions(/MP)
+
+    add_definitions(/DWIN32_LEAN_AND_MEAN)
+    add_definitions(/DNOMINMAX)
 endif()
 
 # default to release build

@@ -21,10 +21,8 @@ set(GDAL_SOURCES
   gdal/gdal/port/cpl_csv.cpp
   gdal/gdal/port/cpl_error.cpp
   gdal/gdal/port/cpl_findfile.cpp
-  gdal/gdal/port/cplgetsymbol.cpp
   gdal/gdal/port/cpl_http.cpp
   gdal/gdal/port/cpl_minixml.cpp
-  gdal/gdal/port/cpl_multiproc.cpp
   gdal/gdal/port/cpl_path.cpp
   gdal/gdal/port/cpl_recode.cpp
   gdal/gdal/port/cpl_recode_stub.cpp
@@ -36,21 +34,28 @@ set(GDAL_SOURCES
   gdal/gdal/port/cpl_vsil_abstract_archive.cpp
   gdal/gdal/port/cpl_vsil_cache.cpp
   gdal/gdal/port/cpl_vsil.cpp
-  gdal/gdal/port/cpl_vsil_crypt.cpp
   gdal/gdal/port/cpl_vsil_sparsefile.cpp
   gdal/gdal/port/cpl_vsil_stdin.cpp
   gdal/gdal/port/cpl_vsil_stdout.cpp
   gdal/gdal/port/cpl_vsil_subfile.cpp
   gdal/gdal/port/cpl_vsil_tar.cpp
   gdal/gdal/port/cpl_vsil_unix_stdio_64.cpp
-  gdal/gdal/port/cpl_vsil_win32.cpp
   gdal/gdal/port/cpl_vsi_mem.cpp
   gdal/gdal/port/cpl_vsisimple.cpp
 )
 
-#set(CMAKE_CXX_STANDARD 11)
-
-#configure_file("gdal/gdal/gcore/gdal_version.h.in" "gdal_version.h" COPYONLY)
+if(BUILDSYS_UWP)
+  list(APPEND GDAL_SOURCES
+    gdalDummiesUwp.cpp
+  )
+else()
+  list(APPEND GDAL_SOURCES
+    gdal/gdal/port/cplgetsymbol.cpp
+    gdal/gdal/port/cpl_multiproc.cpp
+    gdal/gdal/port/cpl_vsil_crypt.cpp
+    gdal/gdal/port/cpl_vsil_win32.cpp
+  )
+endif()
 
 if(MSVC)
   configure_file("gdal/gdal/port/cpl_config.h.vc" "cpl_config.h" COPYONLY)
