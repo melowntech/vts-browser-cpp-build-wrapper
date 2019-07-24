@@ -7,6 +7,10 @@ if(APPLE)
   option(WITH_SIMD "Include SIMD extensions, if available for this platform" FALSE)
 endif()
 
+if(MSVC)
+    option(WITH_CRT_DLL "/MT vs /MD" TRUE)
+endif()
+
 if(NOT CMAKE_INSTALL_DOCDIR)
     set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_BINDIR})
 endif()

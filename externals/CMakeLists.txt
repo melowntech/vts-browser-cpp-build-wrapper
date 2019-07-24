@@ -48,8 +48,5 @@ add_subdirectory(harfbuzz)
 
 if(NOT BUILDSYS_EMBEDDED)
     add_subdirectory(sdl)
-endif()
-
-if(NOT BUILDSYS_IOS)
     add_subdirectory(curl)
 endif()

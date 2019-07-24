@@ -29,6 +29,9 @@ if(MSVC)
     # disable warning: conversion from 'type' to 'type2', possible loss of data
     add_definitions(/wd4267 /wd4244 /wd4305)
 
+    # disable warning: unary minus operator applied to unsigned type, result still unsigned
+    add_definitions(/wd4146)
+
     # disable warning: deprecated declaration
     add_definitions(/wd4996)
 
