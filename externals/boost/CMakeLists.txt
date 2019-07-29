@@ -33,7 +33,6 @@ if(BUILDSYS_UWP)
   
   set(extraIncludes "")
   foreach(l Boost_filesystem Boost_iostreams)
-    message(STATUS "lib: ${l}")
     get_target_property(sources ${l} SOURCES)
     set(sources2 "")
     foreach(s ${sources})

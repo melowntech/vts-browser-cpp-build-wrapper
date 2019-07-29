@@ -10,10 +10,12 @@ This is to make you aware of using unsupported functions.
 
 GDALWarpOperation::~GDALWarpOperation()
 {
+    fprintf(stderr, "GDALWarpOperation::~GDALWarpOperation\n");
     std::terminate();
 }
 
 GDALWarpKernel::~GDALWarpKernel()
 {
+    fprintf(stderr, "GDALWarpKernel::~GDALWarpKernel\n");
     std::terminate();
 }

@@ -10,39 +10,50 @@ This is to make you aware of using unsupported functions.
 
 CPLMutex *CPLCreateMutex(void)
 {
+    fprintf(stderr, "CPLCreateMutex\n");
     std::terminate();
     return nullptr;
 }
 
 CPLMutex *CPLCreateMutexEx(int nOptions)
 {
+    fprintf(stderr, "CPLCreateMutexEx\n");
     std::terminate();
     return nullptr;
 }
 
 int CPLCreateOrAcquireMutex(CPLMutex **, double dfWaitInSeconds)
 {
+    fprintf(stderr, "CPLCreateOrAcquireMutex\n");
     std::terminate();
     return 0;
 }
 
 int CPLCreateOrAcquireMutexEx(CPLMutex **, double dfWaitInSeconds, int nOptions)
 {
+    fprintf(stderr, "CPLCreateOrAcquireMutexEx\n");
     std::terminate();
     return 0;
 }
 
 int CPLAcquireMutex(CPLMutex *hMutex, double dfWaitInSeconds)
 {
+    fprintf(stderr, "CPLAcquireMutex\n");
     std::terminate();
     return 0;
 }
 
 void CPLReleaseMutex(CPLMutex *hMutex)
-{}
+{
+    fprintf(stderr, "CPLReleaseMutex\n");
+    std::terminate();
+}
 
 void CPLDestroyMutex(CPLMutex *hMutex)
-{}
+{
+    fprintf(stderr, "CPLDestroyMutex\n");
+    std::terminate();
+}
 
 GIntBig CPLGetPID(void)
 {
