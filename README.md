@@ -34,7 +34,7 @@ Moreover, it may be necessary to enable creating symlinks when installing the gi
 
 #### Compiler, Git & CMake
 
-A C++11 capable compiler is required.
+A C++14 capable compiler is required.
 We recommend MS Visual Studio 2017 or newer.
 It is freely available at: https://www.visualstudio.com/downloads/
 
@@ -56,6 +56,18 @@ Configure and build.
 mkdir build
 cd build
 cmake -G"Visual Studio 15 2017 Win64" ..
+cmake --build . --config relwithdebinfo
+```
+
+### Building For UWP (Universal Windows Platform)
+
+The prerequisites for Windows apply here too.
+
+Configure and build.
+```bash
+mkdir build-uwp
+cd build-uwp
+cmake -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/uwp.toolchain.cmake -G"Visual Studio 15 2017 Win64" ..
 cmake --build . --config relwithdebinfo
 ```
 
