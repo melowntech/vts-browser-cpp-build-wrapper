@@ -16,6 +16,7 @@ set(GDAL_SOURCES
   gdal/gdal/ogr/ogrct.cpp
   gdal/gdal/ogr/ogrspatialreference.cpp
   # CPL
+  gdal/gdal/port/cpl_progress.cpp
   gdal/gdal/port/cpl_atomic_ops.cpp
   gdal/gdal/port/cpl_conv.cpp
   gdal/gdal/port/cpl_csv.cpp
@@ -40,6 +41,7 @@ set(GDAL_SOURCES
   gdal/gdal/port/cpl_vsil_subfile.cpp
   gdal/gdal/port/cpl_vsil_tar.cpp
   gdal/gdal/port/cpl_vsil_unix_stdio_64.cpp
+  gdal/gdal/port/cpl_vsil_hdfs.cpp
   gdal/gdal/port/cpl_vsi_mem.cpp
   gdal/gdal/port/cpl_vsisimple.cpp
 )
@@ -56,6 +58,8 @@ else()
     gdal/gdal/port/cpl_vsil_win32.cpp
   )
 endif()
+
+configure_file("gdal/gdal/gcore/gdal_version.h.in" "gdal_version.h" COPYONLY)
 
 if(MSVC)
   configure_file("gdal/gdal/port/cpl_config.h.vc" "cpl_config.h" COPYONLY)
