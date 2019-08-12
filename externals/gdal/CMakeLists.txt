@@ -62,7 +62,7 @@ endif()
 configure_file("gdal/gdal/gcore/gdal_version.h.in" "gdal_version.h" COPYONLY)
 
 if(MSVC)
-  configure_file("gdal/gdal/port/cpl_config.h.vc" "cpl_config.h" COPYONLY)
+  configure_file("cpl_config.h.windows" "cpl_config.h" COPYONLY)
 elseif(APPLE)
   configure_file("cpl_config.h.apple" "cpl_config.h" COPYONLY)
 else()
