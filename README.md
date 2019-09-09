@@ -13,15 +13,22 @@ However, the goal is to make it possible to build all the libraries on all platf
 
 Go to the directory where you have cloned the repository.
 
-Make sure that all submodules are cloned too.
+Make sure that all submodules are cloned too:
 ```bash
 git pull
 git submodule update --init --recursive
 ```
 
-### Building On Windows
+If you get an error that file names are too long, use this setting:
+```bash
+git config --system core.longpaths true
+```
 
-#### Permission For Symlinks
+Always clone the repository - do NOT download the repository from github, the downloaded archive does not contain the submodules.
+
+### Building on Windows
+
+#### Permission for Symlinks
 
 On Windows, a specific permissions are required to allow creating symbolic file links.
 There are two ways to acquire the permission.
@@ -59,7 +66,7 @@ cmake -G"Visual Studio 15 2017 Win64" ..
 cmake --build . --config relwithdebinfo
 ```
 
-### Building For UWP (Universal Windows Platform)
+### Building for UWP (Universal Windows Platform)
 
 The prerequisites for Windows apply here too.
 
@@ -71,7 +78,7 @@ cmake -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/uwp.toolchain.cm
 cmake --build . --config relwithdebinfo
 ```
 
-### Building On Linux
+### Building on Linux
 
 Install some prerequisites.
 
@@ -92,7 +99,7 @@ cmake -DCMAKE_BUILD_TYPE=RELWITHDEBINFO ..
 cmake --build .
 ```
 
-### Building On Mac
+### Building on Mac
 
 Configure and build.
 ```bash
@@ -103,7 +110,7 @@ cmake -GXcode ..
 
 Use the generated XCode project as usual.
 
-### Building For iOS
+### Building for iOS
 
 Configure and build.
 ```bash
