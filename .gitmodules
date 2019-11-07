@@ -1,9 +1,6 @@
 [submodule "externals/browser"]
 	path = externals/browser
 	url = https://github.com/melowntech/vts-browser-cpp.git
-[submodule "externals/gdal/gdal"]
-	path = externals/gdal/gdal
-	url = https://github.com/OSGeo/gdal.git
 [submodule "externals/geographiclib/geographiclib"]
 	path = externals/geographiclib/geographiclib
 	url = https://github.com/znly/geographiclib.git
