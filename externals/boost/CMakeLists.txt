@@ -8,10 +8,10 @@ add_subdirectory(boost)
 # BOOST_THREAD_PROVIDES_NESTED_LOCKS # make boost scoped_lock available as a nested class of mutex
 # BOOST_ALL_NO_LIB # configure boost for manual linking libraries
 # BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE # suppress boost compiler version check warnings
-set_target_properties(Boost::boost PROPERTIES INTERFACE_COMPILE_DEFINITIONS "BOOST_THREAD_PROVIDES_NESTED_LOCKS;BOOST_ALL_NO_LIB;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE")
+set_property(TARGET Boost::boost APPEND PROPERTY INTERFACE_COMPILE_DEFINITIONS BOOST_THREAD_PROVIDES_NESTED_LOCKS BOOST_ALL_NO_LIB BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
 
 if(UNIX)
-  set_target_properties(Boost::boost PROPERTIES INTERFACE_COMPILE_OPTIONS "-Wno-unused-local-typedefs")
+    set_property(TARGET Boost::boost APPEND PROPERTY INTERFACE_COMPILE_OPTIONS -Wno-unused-local-typedefs)
 endif()
 
 get_target_property(boost_path Boost::boost INTERFACE_INCLUDE_DIRECTORIES)
@@ -30,7 +30,7 @@ if(BUILDSYS_UWP)
       set(ok FALSE)
     endif()
   endmacro()
-  
+
   set(extraIncludes "")
   foreach(l Boost_filesystem Boost_iostreams)
     get_target_property(sources ${l} SOURCES)
@@ -56,3 +56,7 @@ if(BUILDSYS_UWP)
   target_include_directories(Boost_filesystem PRIVATE ${extraIncludes})
 endif()
 
+
+if(BUILDSYS_WASM)
+    set_property(TARGET Boost::boost APPEND PROPERTY INTERFACE_COMPILE_DEFINITIONS BOOST_ASIO_DISABLE_STD_STRING_VIEW BOOST_ASIO_DISABLE_STD_EXPERIMENTAL_STRING_VIEW)
+endif()

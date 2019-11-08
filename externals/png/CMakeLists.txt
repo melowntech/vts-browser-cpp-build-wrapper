@@ -1,6 +1,11 @@
 
 message(STATUS "@@@ png")
 
+if(BUILDSYS_WASM)
+    add_subdirectory(wasm)
+    return()
+endif()
+
 if(BUILDSYS_IOS)
     set(PNG_HARDWARE_OPTIMIZATIONS "on" CACHE STRING "Enable Hardware Optimizations" FORCE)
     set(PNG_ARM_NEON "on" CACHE STRING "Enable ARM NEON optimizations" FORCE)

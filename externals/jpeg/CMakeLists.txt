@@ -1,6 +1,11 @@
 
 message(STATUS "@@@ jpeg")
 
+if(BUILDSYS_WASM)
+    add_subdirectory(wasm)
+    return()
+endif()
+
 option(ENABLE_SHARED "Build shared libraries" FALSE)
 
 if(APPLE)

@@ -40,7 +40,6 @@ macro(boost_component COMPONENT)
     set(BOOST_${COMPONENT}_FOUND TRUE)
 endmacro(boost_component)
 
-boost_component(THREAD)
 boost_component(ATOMIC)
 boost_component(CHRONO)
 boost_component(DATE_TIME)

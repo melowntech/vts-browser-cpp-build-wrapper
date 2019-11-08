@@ -1,6 +1,11 @@
 
 message(STATUS "@@@ zlib")
 
+if(BUILDSYS_WASM)
+    add_subdirectory(wasm)
+    return()
+endif()
+
 set(SKIP_INSTALL_ALL 1)
 
 add_subdirectory(zlib)

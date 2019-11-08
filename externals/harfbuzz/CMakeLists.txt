@@ -1,6 +1,11 @@
 
 message(STATUS "@@@ harfbuzz")
 
+if(BUILDSYS_WASM)
+    add_subdirectory(wasm)
+    return()
+endif()
+
 # enabling this would cause some tests to fail
 #   because the test compilations will not find the freetype library
 #   which is not yet built (during cmake configure phase)
