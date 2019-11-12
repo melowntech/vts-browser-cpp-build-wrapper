@@ -2,6 +2,7 @@
 message(STATUS "@@@ proj")
 
 option(PROJ_TESTS "Enable build of collection of PROJ tests" OFF)
+option(PROJ4_TESTS "Enable build of collection of PROJ tests" OFF)
 option(BUILD_CCT     "Build cct (coordinate conversion and transformation tool)" OFF)
 option(BUILD_CS2CS   "Build cs2cs (coordinate systems to coordinate systems translation tool)" OFF)
 option(BUILD_GEOD    "Build geod (computation of geodesic lines)" OFF)
