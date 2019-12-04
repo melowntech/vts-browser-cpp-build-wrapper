@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+include(externals/browser/browser/cmake/buildsys_initial_validation.cmake)
 project(vts-browser-build-wrapper)
-
-# disable in-source builds
-set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
-set(CMAKE_DISABLE_SOURCE_CHANGES ON)
-if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
-    message(FATAL_ERROR "In-source build is disabled. Remove the already generated files and start again from dedicated build directory.")
-endif()
 
 # make the project find our own provided libraries
 # the libraries provided here should have higher priority than system libraries
@@ -35,12 +29,6 @@ if(MSVC)
 
     add_definitions(/DWIN32_LEAN_AND_MEAN)
     add_definitions(/DNOMINMAX)
-endif()
-
-# default to release build
-if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    set(CMAKE_BUILD_TYPE RELEASE CACHE STRING "CMAKE_BUILD_TYPE")
-    message(STATUS "Building RELEASE build by default. Set CMAKE_BUILD_TYPE to override it.")
 endif()
 
 # all final product files should be placed in some sane locations
