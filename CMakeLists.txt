@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
-include(externals/browser/browser/cmake/buildsys_initial_validation.cmake)
 project(vts-browser-build-wrapper)
+include(externals/browser/browser/cmake/buildsys_initial_validation.cmake)
 
 # make the project find our own provided libraries
 # the libraries provided here should have higher priority than system libraries
