@@ -12,7 +12,7 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 
-#disable warnings that some files produced no symbols
+# disable warnings that some files produced no symbols
 if(MSVC)
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ignore:4221")
     set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -ignore:4221")
@@ -34,7 +34,7 @@ else()
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O3")
 endif()
 
-add_subdirectory(zlib)
+add_subdirectory(zlib-ng)
 add_subdirectory(jsoncpp)
 add_subdirectory(png)
 add_subdirectory(jpeg)

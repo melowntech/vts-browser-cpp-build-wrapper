@@ -1,18 +1,18 @@
 
-if(NOT TARGET zlibstatic)
-    message(FATAL "zlibstatic NOT FOUND")
+if(NOT TARGET zlib)
+    message(FATAL "zlib NOT FOUND")
 endif()
 
 if(NOT TARGET ZLIB::ZLIB)
-    set(lib $<TARGET_LINKER_FILE:zlibstatic>)
-    get_target_property(inc zlibstatic INTERFACE_INCLUDE_DIRECTORIES)
+    set(lib $<TARGET_LINKER_FILE:zlib>)
+    get_target_property(inc zlib INTERFACE_INCLUDE_DIRECTORIES)
 
     add_library(ZLIB::ZLIB INTERFACE IMPORTED GLOBAL)
     set_target_properties(ZLIB::ZLIB PROPERTIES
         INTERFACE_LINK_LIBRARIES "${lib}"
         INTERFACE_INCLUDE_DIRECTORIES "${inc}"
     )
-    add_dependencies(ZLIB::ZLIB zlibstatic)
+    add_dependencies(ZLIB::ZLIB zlib)
 endif()
 
 get_target_property(Zlib_LIBRARIES ZLIB::ZLIB INTERFACE_LINK_LIBRARIES)

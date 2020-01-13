@@ -16,9 +16,6 @@
 [submodule "externals/jpeg/jpeg"]
 	path = externals/jpeg/jpeg
 	url = https://github.com/libjpeg-turbo/libjpeg-turbo
-[submodule "externals/zlib/zlib"]
-	path = externals/zlib/zlib
-	url = https://github.com/melowntech/zlib.git
 [submodule "externals/png/png"]
 	path = externals/png/png
 	url = https://github.com/glennrp/libpng
@@ -36,4 +33,7 @@
 	url = https://github.com/harfbuzz/harfbuzz.git
 [submodule "externals/freetype/freetype2"]
 	path = externals/freetype/freetype2
-	url = https://git.savannah.nongnu.org/r/freetype/freetype2.git/
+	url = https://github.com/melowntech/freetype2.git
+[submodule "externals/zlib-ng/zlib-ng"]
+	path = externals/zlib-ng/zlib-ng
+	url = https://github.com/zlib-ng/zlib-ng.git

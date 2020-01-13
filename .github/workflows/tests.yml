@@ -20,6 +20,10 @@ jobs:
         git config --global core.symlinks true
         git submodule update --init --recursive
 
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '2.x'
+
     - name: Configure
       shell: bash
       run: |
@@ -51,6 +55,10 @@ jobs:
         export MSYS=winsymlinks:nativestrict
         git config --global core.symlinks true
         git submodule update --init --recursive
+
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '2.x'
 
     - name: Configure
       shell: bash
