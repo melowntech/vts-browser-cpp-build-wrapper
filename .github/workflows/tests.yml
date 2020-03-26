@@ -3,10 +3,12 @@ on: [ push, pull_request ]
 
 jobs:
   Windows:
-    runs-on: windows-latest
+    runs-on: windows-${{ matrix.os-version }}
     strategy:
       fail-fast: false
       matrix:
+        os-version: [ 2016, latest ]
+        python-version: [ 2.x, 3.x ]
         build-config: [ debug, release ]
         build-arch: [ Win32, x64 ]
 
@@ -22,7 +24,7 @@ jobs:
 
     - uses: actions/setup-python@v1
       with:
-        python-version: '2.x'
+        python-version: '${{ matrix.python-version }}'
 
     - name: Configure
       shell: bash
@@ -58,7 +60,7 @@ jobs:
 
     - uses: actions/setup-python@v1
       with:
-        python-version: '2.x'
+        python-version: '3.x'
 
     - name: Configure
       shell: bash
