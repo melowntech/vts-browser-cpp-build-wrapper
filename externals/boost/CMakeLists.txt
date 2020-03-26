@@ -1,21 +1,7 @@
 
 message(STATUS "@@@ boost")
 
-option(BOOST_DOWNLOAD_TO_BINARY_DIR "Prefer downloading Boost to the binary directory instead of source directory" ON)
-
-set(BOOST_URL "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2" CACHE STRING "Boost download URL" FORCE)
-set(BOOST_URL_SHA256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406" CACHE STRING "Boost download URL SHA256 checksum" FORCE)
-
 add_subdirectory(boost)
-
-# BOOST_THREAD_PROVIDES_NESTED_LOCKS # make boost scoped_lock available as a nested class of mutex
-# BOOST_ALL_NO_LIB # configure boost for manual linking libraries
-# BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE # suppress boost compiler version check warnings
-set_property(TARGET Boost::boost APPEND PROPERTY INTERFACE_COMPILE_DEFINITIONS BOOST_THREAD_PROVIDES_NESTED_LOCKS BOOST_ALL_NO_LIB BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
-
-if(UNIX)
-    set_property(TARGET Boost::boost APPEND PROPERTY INTERFACE_COMPILE_OPTIONS -Wno-unused-local-typedefs)
-endif()
 
 get_target_property(boost_path Boost::boost INTERFACE_INCLUDE_DIRECTORIES)
 if(NOT boost_path)
