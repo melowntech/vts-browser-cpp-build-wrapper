@@ -6,7 +6,7 @@
 	url = https://github.com/znly/geographiclib.git
 [submodule "externals/boost/boost"]
 	path = externals/boost/boost
-	url = https://github.com/Orphis/boost-cmake.git
+	url = https://github.com/melowntech/boost-cmake.git
 [submodule "externals/jsoncpp/jsoncpp"]
 	path = externals/jsoncpp/jsoncpp
 	url = https://github.com/open-source-parsers/jsoncpp.git

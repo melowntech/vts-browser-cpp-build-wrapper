@@ -8,9 +8,9 @@ jobs:
       fail-fast: false
       matrix:
         os-version: [ 2016, latest ]
-        python-version: [ 2.x, 3.x ]
-        build-config: [ debug, release ]
         build-arch: [ Win32, x64 ]
+        build-config: [ debug, release ]
+        python-version: [ 2.x, 3.x ]
 
     steps:
     - uses: actions/checkout@v1
@@ -42,10 +42,11 @@ jobs:
 
 
   Uwp:
-    runs-on: windows-latest
+    runs-on: windows-${{ matrix.os-version }}
     strategy:
       fail-fast: false
       matrix:
+        os-version: [ 2016, latest ]
         build-config: [ debug, release ]
 
     steps:
@@ -86,10 +87,11 @@ jobs:
 
 
   Ubuntu:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-${{ matrix.os-version }}
     strategy:
       fail-fast: false
       matrix:
+        os-version: [ 16.04, latest ]
         build-config: [ debug, release ]
 
     steps:
