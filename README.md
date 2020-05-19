@@ -49,7 +49,6 @@ https://gitforwindows.org/ and https://cmake.org/download/
 ### Python
 
 Python is available at: https://www.python.org/downloads/windows/
-Make sure to choose Python *2*.
 
 Also, during the installation, select to add the Python to environment variable PATH.
 
@@ -59,14 +58,13 @@ Configure and build.
 ```bash
 mkdir build
 cd build
-cmake -G"Visual Studio 15 2017" -Ax64 ..
+cmake -Ax64 ..
 cmake --build . --config relwithdebinfo
 ```
 
-The _-G_ is generator selection. Use `cmake --help` to see all available generators.
 The _-Ax64_ selects 64 bit architecture.
 
-You may skip the last line and use the visual studio projects/solution as usual instead.
+You may skip the last line and use the visual studio solution as usual instead.
 
 ### Building for UWP (Universal Windows Platform)
 
@@ -74,7 +72,7 @@ Configure and build.
 ```bash
 mkdir build-uwp
 cd build-uwp
-cmake -G"Visual Studio 15 2017" -Ax64 -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/uwp.toolchain.cmake ..
+cmake -Ax64 -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/uwp.toolchain.cmake ..
 cmake --build . --config relwithdebinfo
 ```
 
