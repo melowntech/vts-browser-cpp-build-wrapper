@@ -1,4 +1,8 @@
 
+if(NOT TARGET freetype)
+    message(FATAL "freetype NOT FOUND")
+endif()
+
 set(Freetype_LIBRARIES freetype)
 get_target_property(Freetype_INCLUDE_DIRS freetype INTERFACE_INCLUDE_DIRECTORIES)
 set(Freetype_LIBRARY ${Freetype_LIBRARIES})
