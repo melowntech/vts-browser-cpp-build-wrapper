@@ -6,10 +6,6 @@ include(externals/browser/browser/cmake/buildsys_initial_validation.cmake)
 # the libraries provided here should have higher priority than system libraries
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/modules")
 
-# make cmake search for additional programs
-# the programs provided here should have higher priority than system programs
-list(INSERT CMAKE_PREFIX_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/programs")
-
 # MS Visual Studio
 if(MSVC)
     # disable warning: class 'type' needs to have dll-interface to be used by clients of class 'type2'
