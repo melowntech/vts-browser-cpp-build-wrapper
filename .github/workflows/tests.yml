@@ -68,7 +68,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=$PWD/../externals/browser/browser/cmake/uwp.toolchain.cmake ..
+        cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=../toolchains/uwp.cmake ..
 
     - name: Build the browser
       shell: bash
@@ -146,7 +146,7 @@ jobs:
         source ../emsdk/emsdk_env.sh
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DEMSCRIPTEN_PREFIX=$EMSDK/upstream/emscripten -DCMAKE_TOOLCHAIN_FILE=$PWD/../externals/browser/browser/cmake/wasm.toolchain.cmake ..
+        cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=../toolchains/wasm.cmake ..
 
     - name: Build
       run: |
@@ -200,7 +200,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -GXcode -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=$PWD/../externals/browser/browser/cmake/ios.toolchain.cmake ..
+        cmake -GXcode -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=../toolchains/ios.cmake ..
 
     - name: Build
       run: |
