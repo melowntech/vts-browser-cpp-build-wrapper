@@ -79,7 +79,6 @@ cmake --build . --config relwithdebinfo
 ## Building for Linux desktop
 
 Install some prerequisites.
-
 ```bash
 sudo apt update
 sudo apt install \
@@ -115,6 +114,15 @@ cmake --build . -- -j5
 Use emrun to test the build.
 
 ## Building for Mac
+
+Install some prerequisites.
+```bash
+sudo port install nasm
+```
+Or.
+```bash
+brew install nasm
+```
 
 Configure and build.
 ```bash
