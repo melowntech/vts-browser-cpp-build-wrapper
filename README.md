@@ -72,14 +72,13 @@ Configure and build.
 ```bash
 mkdir build-uwp
 cd build-uwp
-cmake -Ax64 -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/uwp.toolchain.cmake ..
+cmake -Ax64 -DCMAKE_TOOLCHAIN_FILE=../toolchains/uwp.cmake ..
 cmake --build . --config relwithdebinfo
 ```
 
 ## Building for Linux desktop
 
 Install some prerequisites.
-
 ```bash
 sudo apt update
 sudo apt install \
@@ -108,13 +107,22 @@ Configure and build.
 ```bash
 mkdir build-wasm
 cd build-wasm
-cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/wasm.toolchain.cmake ..
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_TOOLCHAIN_FILE=../toolchains/wasm.cmake ..
 cmake --build . -- -j5
 ```
 
 Use emrun to test the build.
 
 ## Building for Mac
+
+Install some prerequisites.
+```bash
+sudo port install nasm
+```
+Or.
+```bash
+brew install nasm
+```
 
 Configure and build.
 ```bash
@@ -131,7 +139,7 @@ Configure and build.
 ```bash
 mkdir build-ios
 cd build-ios
-cmake -GXcode -DCMAKE_TOOLCHAIN_FILE=../externals/browser/browser/cmake/ios.toolchain.cmake ..
+cmake -GXcode -DCMAKE_TOOLCHAIN_FILE=../toolchains/ios.cmake ..
 ```
 
 Use the generated XCode project as usual.
@@ -142,7 +150,7 @@ For standalone VTS build:
 ```
 vts-browser-cpp-build-wrapper
 ├── build
-│   ├── vts-browser-build-wrapper.sln -- here is your project for Windows
+│   ├── vts-browser-build-wrapper.sln -- here is your solution for Windows
 │   ├── Makefile -- here is your makefile for Linux
 │   └── vts-browser-build-wrapper.xcodeproj -- here is your project for Mac
 ├── build-wasm
@@ -151,13 +159,13 @@ vts-browser-cpp-build-wrapper
 │   └── vts-browser-build-wrapper.sln -- here is your solution for UWP
 ├── build-ios
 │   └── vts-browser-build-wrapper.xcodeproj -- here is your project for iOS
+├── toolchains
+│   ├── wasm.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for web assembly
+│   ├── uwp.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for UWP
+│   └── ios.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for iOS
 ├── externals
 │   └── browser -- if this folder is empty, you forgot to clone the submodules (run 'git submodule update --init --recursive' to initialize the submodules now)
 │       ├── browser
-│       │   └── cmake
-│       │       ├── wasm.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for web assembly
-│       │       ├── uwp.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for UWP
-│       │       └── ios.toolchain.cmake -- this is where CMAKE_TOOLCHAIN_FILE points to when building for iOS
 |       ├── BUILDING.md -- build instructions for linux desktop only (with system dependencies)
 │       ├── LICENSE
 │       └── README.md

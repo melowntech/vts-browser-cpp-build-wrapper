@@ -16,13 +16,12 @@ if(WIN32)
     endif()
 endif()
 
-if(APPLE)
-    # does anyone remember why is asm explicitly disabled on apple?
-    option(WITH_SIMD "Include SIMD extensions, if available for this platform" FALSE)
-else()
-    if(NOT CMAKE_CROSSCOMPILING)
-        option(REQUIRE_SIMD "Generate a fatal error if SIMD extensions are not available for this platform (default is to fall back to a non-SIMD build)" TRUE)
+if(CMAKE_CROSSCOMPILING)
+    if(BUILDSYS_IOS)
+        option(WITH_SIMD "Include SIMD extensions, if available for this platform" FALSE)
     endif()
+else()
+    option(REQUIRE_SIMD "Generate a fatal error if SIMD extensions are not available for this platform (default is to fall back to a non-SIMD build)" TRUE)
 endif()
 
 if(MSVC)
