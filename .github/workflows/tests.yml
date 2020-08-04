@@ -47,6 +47,7 @@ jobs:
       fail-fast: false
       matrix:
         os-version: [ 2016, latest ]
+        build-arch: [ Win32, x64 ]
         build-config: [ debug, release ]
 
     steps:
@@ -68,7 +69,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=../toolchains/uwp.cmake ..
+        cmake -A${{ matrix.build-arch }} -DCMAKE_BUILD_TYPE=${{ matrix.build-config }} -DCMAKE_TOOLCHAIN_FILE=../toolchains/uwp.cmake ..
 
     - name: Build the browser
       shell: bash
