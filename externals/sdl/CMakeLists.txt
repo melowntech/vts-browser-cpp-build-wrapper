@@ -22,3 +22,4 @@ directory_link("${CMAKE_CURRENT_SOURCE_DIR}/sdl/include" "${CMAKE_CURRENT_BINARY
 target_include_directories(SDL2-static INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 
 add_library(SDL2 ALIAS SDL2-static)
+

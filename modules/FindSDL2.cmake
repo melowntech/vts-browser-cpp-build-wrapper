@@ -1,4 +1,8 @@
 
+if(NOT TARGET SDL2)
+  message(FATAL_ERROR "SDL2 not yet ready")
+endif()
+
 set(Sdl2_LIBRARIES SDL2)
 get_target_property(Sdl2_INCLUDE_DIRS SDL2 INTERFACE_INCLUDE_DIRECTORIES)
 set(Sdl2_LIBRARY ${Sdl2_LIBRARIES})
