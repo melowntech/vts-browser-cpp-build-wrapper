@@ -85,6 +85,7 @@ sudo apt install \
     cmake \
     nasm \
     libssl-dev \
+    xorg-dev \
     python-minimal
 ```
 
