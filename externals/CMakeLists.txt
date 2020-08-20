@@ -47,5 +47,6 @@ add_subdirectory(harfbuzz)
 
 if(NOT BUILDSYS_EMBEDDED)
     add_subdirectory(sdl)
+    add_subdirectory(glfw)
     add_subdirectory(curl)
 endif()
