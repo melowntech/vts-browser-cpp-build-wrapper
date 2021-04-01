@@ -1,6 +1,6 @@
 
 if(NOT TARGET vts-jpeg)
-    message(FATAL "vts-jpeg NOT FOUND")
+    message(FATAL_ERROR "vts-jpeg NOT FOUND")
 endif()
 
 set(Jpeg_LIBRARIES vts-jpeg)
