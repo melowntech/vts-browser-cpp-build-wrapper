@@ -1,6 +1,6 @@
 
 if(NOT TARGET zlib)
-    message(FATAL "zlib NOT FOUND")
+    message(FATAL_ERROR "zlib NOT FOUND")
 endif()
 
 if(NOT TARGET ZLIB::ZLIB)

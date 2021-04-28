@@ -1,6 +1,6 @@
 
 if(NOT TARGET png_static)
-    message(FATAL "png_static NOT FOUND")
+    message(FATAL_ERROR "png_static NOT FOUND")
 endif()
 
 set(Png_LIBRARIES png_static)

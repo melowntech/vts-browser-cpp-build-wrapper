@@ -1,6 +1,6 @@
 
 if(NOT TARGET freetype)
-    message(FATAL "freetype NOT FOUND")
+    message(FATAL_ERROR "freetype NOT FOUND")
 endif()
 
 set(Freetype_LIBRARIES freetype)

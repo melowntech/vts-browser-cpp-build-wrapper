@@ -34,6 +34,8 @@ endif()
 
 add_subdirectory(jpeg)
 
-target_include_directories(jpeg-static INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/jpeg")
-target_include_directories(jpeg-static INTERFACE "${CMAKE_CURRENT_BINARY_DIR}/jpeg")
+add_library(vts-jpeg INTERFACE)
+target_link_libraries(vts-jpeg INTERFACE jpeg-static)
+target_include_directories(vts-jpeg INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/jpeg")
+target_include_directories(vts-jpeg INTERFACE "${CMAKE_CURRENT_BINARY_DIR}/jpeg")
 

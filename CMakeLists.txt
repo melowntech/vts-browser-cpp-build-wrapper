@@ -48,9 +48,9 @@ message(STATUS "@@@ including vts browser")
 add_subdirectory(externals/browser/browser)
 
 # ide groups for 3rd party targets
-foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_static libcurl png_static proj SDL2-static simd simd-objs zlibstatic freetype harfbuzz hb-ft-interop
+foreach(name IN ITEMS genfiles jpeg-static GeographicLib_STATIC jsoncpp_static libcurl png_static proj SDL2-static simd simd-objs freetype harfbuzz hb-ft-interop
     example minigzip zlib genprebuilt gensym genvers symbol-check uninstall dmg wrjpgcom testclean dist rdjpgcom udmg jpegtran-static tjtest tarball
-	turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main glfw)
+    turbojpeg-static djpeg-static tjunittest-static cjpeg-static tjbench-static jsimdcfg md5cmp SDL2main glfw)
     if(TARGET ${name})
         buildsys_ide_groups(${name} deps)
     endif()
